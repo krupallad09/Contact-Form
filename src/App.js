@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import submitForm from "./submitForm";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form
+      // Ignore the onSubmit prop, it's used by GFE to
+      // intercept the form submit event to check your solution.
+      onSubmit={submitForm}
+      action="https://www.greatfrontend.com/api/questions/contact-form"
+      method="post"
+    >
+      <div>
+        <label htmlFor="name-input"> Name </label>
+        <input id="name-input" name="name" type="text" />
+      </div>
+      <div>
+        <label htmlFor="email-input"> Email </label>
+        <input id="email-input" name="email" type="text" />
+      </div>
+      <div>
+        <label htmlFor="message-input">Message</label>
+        <textarea id="message-input" name="message"></textarea>
+      </div>
+      <div>
+        <button> Send </button>
+      </div>
+    </form>
   );
 }
-
-export default App;
